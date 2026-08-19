@@ -1,4 +1,4 @@
-# Travel Mate Web Site Landing Page
+# Travel Mate Web Site-app Landing Page
 
 Welcome to the Travel Mate landing page project!
 
