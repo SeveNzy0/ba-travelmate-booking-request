@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TravelMate — Find and book the perfect hotel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #fdf9f6;
+        --text: #1c1917;
+        --muted: #78716c;
+        --brand: #b24b00;
+        --brand-hover: #9a3f00;
+        --border: #e7e5e4;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem 4rem;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 3rem;
+      }
+
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+
+      nav {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: #444;
+      }
+
+      .nav-link:hover {
+        color: var(--brand);
+      }
+
+      .auth {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .signup {
+        background: var(--text);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 2rem;
+        font-weight: 500;
+      }
+
+      main {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 4rem;
+        margin-top: 2rem;
+      }
+
+      .hero {
+        max-width: 550px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border: 1px solid #ddb88c;
+        border-radius: 2rem;
+        color: #a36a00;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        background: rgba(221, 184, 140, 0.1);
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 4.5rem;
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        margin-bottom: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1.15rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        max-width: 480px;
+      }
+
+      .cta {
+        display: inline-block;
+        background: var(--brand);
+        color: #fff;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .cta:hover {
+        background: var(--brand-hover);
+      }
+
+      .panel {
+        flex: 1;
+        max-width: 420px;
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+
+      .panel h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: var(--muted);
+      }
+
+      input {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        font: inherit;
+        background: #fff9f3;
+      }
+
+      .search {
+        width: 100%;
+        background: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .search:hover {
+        background: var(--brand-hover);
+      }
+
+      footer {
+        margin-top: 5rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 900px) {
+        .wrap {
+          padding: 1.5rem;
+        }
+
+        header,
+        main {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        .panel {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="logo">TravelMate</div>
+        <nav>
+          <a class="nav-link" href="#destinations">Destinations</a>
+          <a class="nav-link" href="#magazine">Magazine</a>
+          <a class="nav-link" href="#about">About</a>
+        </nav>
+        <div class="auth">
+          <a href="#login">Log in</a>
+          <a class="signup" href="#signup">Sign up</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="badge">The smart way to travel</div>
+          <h1>Find and book the perfect hotel in minutes</h1>
+          <p class="subtitle">
+            Compare prices, ratings, and booking conditions from multiple platforms
+            in one place — without opening dozens of tabs.
+          </p>
+          <a class="cta" href="#search">Find a hotel</a>
+        </section>
+
+        <form class="panel" id="search">
+          <h2>Quick Search</h2>
+          <label for="destination">Destination</label>
+          <input id="destination" type="text" placeholder="Paris, France" />
+          <label for="checkin">Check-in</label>
+          <input id="checkin" type="date" />
+          <label for="checkout">Check-out</label>
+          <input id="checkout" type="date" />
+          <button class="search" type="button">Search Deals</button>
+        </form>
+      </main>
+
+      <footer>TravelMate — a Mate academy learning project</footer>
+    </div>
+  </body>
+</html>
