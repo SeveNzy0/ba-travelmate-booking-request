@@ -5,29 +5,34 @@
 
 
 ```mermaid
-flowchart TD
-    Start([User navigates to 'Filter by Price']) --> PriceInput[User inputs Minimum, Maximum, or Price Range]
-    
-    PriceInput --> CheckMin{Is Minimum Price < 0?}
-    
-    %% Alternative Flow A2: Negative Price Input
-    CheckMin -- Yes (A2) --> ErrMin[Show Pop-up: 'Invalid price entered']
-    ErrMin --> FixMin[Replace entered value with 0]
-    FixMin --> SearchBtn
-    
-    CheckMin -- No --> SearchBtn[User clicks 'Search for Hotels' button]
-    
-    SearchBtn --> QuerySystem[System applies filter and searches hotels]
-    
-    QuerySystem --> CheckResults{Do any hotels meet criteria?}
-    
-    %% Main Success Flow
-    CheckResults -- Yes --> DisplayHotels[System refreshes page and displays filtered hotels]
-    DisplayHotels --> EndSuccess([End])
-    
-    %% Alternative Flow A1: No Hotels Found
-    CheckResults -- No (A1) --> ErrNoResults[Redirect to error page: 'No hotels were found within this price range...']
-    ErrNoResults --> RedirectSearch[System redirects back to hotel search page]
-    RedirectSearch --> EndFail([End])
+graph TD
+    Start([User navigates to 'Filter by Price']) --> InputPrice[User inputs price criteria:<br>min, max, or range]
 
+    InputPrice --> CheckMin{Min price < 0?}
+    
+    %% Alternate Flow A2 (Negative price)
+    CheckMin -- Yes --> A2_Error[Display pop-up error:<br>'Invalid price entered']
+    A2_Error --> A2_Reset[System replaces entered number with 0]
+    A2_Reset --> InputPrice
+
+    %% Range Validation (Max < Min)
+    CheckMin -- No --> CheckRange{Max price < Min price?}
+    
+    CheckRange -- Yes --> RangeError[Display error message:<br>'Maximum price cannot be less than minimum price']
+    RangeError --> InputPrice
+
+    %% Main Flow
+    CheckRange -- No --> ClickSearch[User clicks 'Search for Hotels']
+    ClickSearch --> ExecuteSearch[System searches for matching hotels]
+
+    ExecuteSearch --> CheckResults{Matching hotels found?}
+
+    %% Main Flow Outcome
+    CheckResults -- Yes --> DisplayHotels[System refreshes page and displays<br>only the filtered hotels]
+    DisplayHotels --> End([End Process])
+
+    %% Alternate Flow A1 (No hotels found)
+    CheckResults -- No --> A1_RedirectError[System redirects to error page:<br>'No hotels were found within this price range...']
+    A1_RedirectError --> A1_ReturnSearch[System redirects user back<br>to hotel search page]
+    A1_ReturnSearch --> End
 ```
